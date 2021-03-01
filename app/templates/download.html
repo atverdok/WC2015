@@ -1,0 +1,21 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block title %}
+    <title>sitemap.xml for {{ ans.url }}</title>
+{% endblock %}
+
+{% block content %}
+<h1>Sitemap for: {{ ans.url }}</h1>
+    <p>
+        Download <a href="{{ url_for('static', filename = ans.sitemap ) }}"  download>sitemap.xml </a><br>
+    </p>
+    <p>
+        Глубина поиска: {{ ans.depth }}<br>
+        Ссылок распарсено: {{ ans.processed_links }}<br>
+        Добавленно ссылок в sitemap.xml: {{ ans.added_links }}
+    </p>
+    <p>
+        <a href="/">на главную</a>
+    </p>
+{% endblock %}

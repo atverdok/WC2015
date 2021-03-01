@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="" method="post" name="login">
+    {{form.hidden_tag()}}
+    <p>
+        Введите адрес сайта:<br>
+        {{form.url(size=80)}}<br>
+        <span style="font-size:80%;">например: http://example.ua/</span><br>
+        {% for error in form.errors.url %}
+        <span style="color: red;">[{{error}}]</span><br>
+        {% endfor %}
+        {% if error %}
+        <span style="color: red;">[{{error}}]</span><br>
+        {% endif %}
+    </p>
+    <p><input type="submit" value="Отправить"></p>
+</form>
+
+{% endblock %}
+{% block script %}
+  <script>
+      document.getElementById('url').setAttribute('value', 'http://');
+</script>
+{% endblock %}
